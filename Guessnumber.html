@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess number</title>
+	<script type="text/javascript">
+		var count=10;
+		var result=Math.floor(Math.random()*11);
+		var pass='';
+		function run()
+		{
+			
+			var guess=document.getElementById("yournumber").value;
+			if(guess>result)
+			{
+				count--;
+				document.getElementById("Title").innerHTML="Your guess was too high,you have "+count+" times";
+				document.getElementById("Title").style.backgroundColor='red';
+				if(count==0)
+				{
+					alert('You lose, the number is'+result);
+				}
+			}
+			else if(guess<result)
+			{
+				count--;
+				document.getElementById("Title").innerHTML="Your guess was too lower,you have "+count+" times";
+				document.getElementById("Title").style.backgroundColor='red';
+				if(count==0)
+				{
+					alert('You lose, the number is'+result);
+				}
+			}
+			else
+			{
+				document.getElementById("Title").innerHTML="Your guess correct,";
+				document.getElementById("Title").style.backgroundColor='green';
+				alert("You right")
+			}
+			pass=pass+guess+'<br>';
+			document.getElementById('passresult').innerHTML=pass;
+		}
+	</script>
+</head>
+<body>
+	<p id="Title">Please input your number</p>
+	<input id="yournumber">
+	<button onclick="run()">Guess</button>
+	<h4 id="passresult">Result</h4>
+</body>
+</html>
